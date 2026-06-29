@@ -135,5 +135,4 @@ If you use any of these pipelines in your research, please cite the relevant rep
 
 ## Connect
 
-- Monash University Malaysia — School of Science
 - Email: aswinileela7@gmail.com
