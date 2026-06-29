@@ -78,7 +78,7 @@ Modular, reproducible versions of all pipelines using [Nextflow](https://www.nex
 
 ---
 
-## Original Pipelines (v1.x)
+## Original Pipelines (v1.0.0)
 
 ### Genome Assembly
 | Repository | Description |
