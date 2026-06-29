@@ -1,6 +1,6 @@
 # Hi, I'm Aswini Leela 👋
 
-**Genomics Researcher | Long-Read Assembly Specialist | Monash University Malaysia**
+**Genomics | Bioinformatics**
 
 I develop and maintain bioinformatics pipelines for whole-genome assembly, metagenomics, and clinical genomics using Oxford Nanopore and PacBio HiFi sequencing technologies.
 
