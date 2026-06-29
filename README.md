@@ -15,7 +15,70 @@ I develop and maintain bioinformatics pipelines for whole-genome assembly, metag
 
 ---
 
-## Pipelines & Tools
+## End-to-End Pipelines
+
+| Repository | Description |
+|---|---|
+| [Assembly-End-to-End-Pipeline](https://github.com/aswinileela/Assembly-End-to-End-Pipeline) | Full genome assembly pipeline: FASTQ → QC → assembly → polishing → annotation → report |
+| [16S-End-to-End-Pipeline](https://github.com/aswinileela/16S-End-to-End-Pipeline) | Full 16S amplicon pipeline: FASTQ → QIIME2 → DADA2 → taxonomy → diversity → report |
+
+---
+
+## Nextflow DSL2 Pipelines (v2.0.0)
+
+Modular, reproducible versions of all pipelines using [Nextflow](https://www.nextflow.io/) with conda, Singularity, and SLURM support.
+
+### Genome Assembly
+| Repository | Description |
+|---|---|
+| [Full-PacBio-Assembly-Pipeline_nf](https://github.com/aswinileela/Full-PacBio-Assembly-Pipeline_nf) | QC → Hifiasm → purge_dups → ntLink scaffold → BUSCO/QUAST |
+| [PacBio-Assembly-Pipeline_nf](https://github.com/aswinileela/PacBio-Assembly-Pipeline_nf) | Jellyfish → Hifiasm → BUSCO → assembly-stats |
+| [ONT-Assembly_nf](https://github.com/aswinileela/ONT-Assembly_nf) | Porechop → minimap2 → FreeBayes + BCFtools variant calling |
+| [Assembly-Polishing-and-Annotation_nf](https://github.com/aswinileela/Assembly-Polishing-and-Annotation_nf) | pbmm2 → gcpp polishing → LiftOff annotation → BUSCO |
+| [verkko_HPC_nf](https://github.com/aswinileela/verkko_HPC_nf) | Verkko T2T assembly (HiFi + ONT) |
+
+### Metagenomics
+| Repository | Description |
+|---|---|
+| [humann3_HPC_nf](https://github.com/aswinileela/humann3_HPC_nf) | FastQC → KneadData → HUMAnN3 → renorm → join |
+| [metaphlan_HPC_nf](https://github.com/aswinileela/metaphlan_HPC_nf) | BWA host removal → MetaPhlAn4 → merge tables |
+| [Metaphlan4-Analysis_nf](https://github.com/aswinileela/Metaphlan4-Analysis_nf) | MetaPhlAn4 + Kraken2 + Bracken |
+| [OA_Microbiome_nf](https://github.com/aswinileela/OA_Microbiome_nf) | Host removal → MetaPhlAn4 → merge |
+| [ONT_Metagenomics_nf](https://github.com/aswinileela/ONT_Metagenomics_nf) | Filtlong → Porechop → Kraken2 → Bracken → DeepARG |
+| [Shotgun-Metagenomics_nf](https://github.com/aswinileela/Shotgun-Metagenomics_nf) | FastQC → bowtie2 → metaSPAdes → MetaBat2 → MetaPhlAn4 |
+| [Shotgun-Metagenomics-Kraken_nf](https://github.com/aswinileela/Shotgun-Metagenomics-Kraken_nf) | MEGAHIT → Kraken2 → Bracken → Prokka |
+
+### 16S / Amplicon
+| Repository | Description |
+|---|---|
+| [16s-Qiime2-Analysis_nf](https://github.com/aswinileela/16s-Qiime2-Analysis_nf) | QIIME2 → DADA2 → phylogeny → taxonomy → diversity |
+| [16s-Analysis-R_nf](https://github.com/aswinileela/16s-Analysis-R_nf) | R phyloseq + DESeq2 wrapped in Nextflow |
+| [ONT_Microbiome_nf](https://github.com/aswinileela/ONT_Microbiome_nf) | Cutadapt → QIIME2 → DADA2 → taxonomy → barplot |
+| [PacBio-Sequel-IIe-Amplicon-Sequencing-Analysis_nf](https://github.com/aswinileela/PacBio-Sequel-IIe-Amplicon-Sequencing-Analysis_nf) | FastQC → Canu → minimap2 → GATK + FreeBayes |
+
+### Variant Calling & Clinical Genomics
+| Repository | Description |
+|---|---|
+| [WES-GATK-Analysis_nf](https://github.com/aswinileela/WES-GATK-Analysis_nf) | BWA-MEM → MarkDuplicates → BQSR → HaplotypeCaller → GenotypeGVCFs |
+| [GREP_nf](https://github.com/aswinileela/GREP_nf) | FreeBayes → VEP annotation + optional Hifiasm trio assembly |
+| [Variant-Calling-with-Sniffles_nf](https://github.com/aswinileela/Variant-Calling-with-Sniffles_nf) | Flye → Racon → minimap2 → Sniffles structural variants |
+| [GATK-Mutect2_nf](https://github.com/aswinileela/GATK-Mutect2_nf) | MarkDuplicates → Mutect2 → FilterMutectCalls (tumour/normal) |
+| [Checking-Unmapped-Reads_nf](https://github.com/aswinileela/Checking-Unmapped-Reads_nf) | samtools unmapped extraction → bcftools variant call |
+
+### Other
+| Repository | Description |
+|---|---|
+| [RNASeq-Analysis_nf](https://github.com/aswinileela/RNASeq-Analysis_nf) | FastQC → HISAT2 → STAR → MultiQC |
+| [SARS-CoV-2-Analysis_nf](https://github.com/aswinileela/SARS-CoV-2-Analysis_nf) | Split FASTA → parallel MAFFT → merge alignments |
+| [R-Scatter-Plots_nf](https://github.com/aswinileela/R-Scatter-Plots_nf) | ggplot2 scatter plots wrapped in Nextflow |
+| [Network-Speed-Info_nf](https://github.com/aswinileela/Network-Speed-Info_nf) | speedtest-cli network monitoring |
+| [Net_nf](https://github.com/aswinileela/Net_nf) | Network connectivity check |
+| [Remote-Access-with-VPN_nf](https://github.com/aswinileela/Remote-Access-with-VPN_nf) | Remote access connectivity check |
+| [Batch-Install-Linux-Packages-MultiplePCs_nf](https://github.com/aswinileela/Batch-Install-Linux-Packages-MultiplePCs_nf) | Parallel SSH Linux package installation |
+
+---
+
+## Original Pipelines (v1.x)
 
 ### Genome Assembly
 | Repository | Description |
@@ -66,11 +129,11 @@ I develop and maintain bioinformatics pipelines for whole-genome assembly, metag
 
 ## Citation
 
-If you use any of these pipelines in your research, please cite the relevant repository using the `CITATION.cff` file in each repo, or see the [Zenodo DOI](https://zenodo.org) links once published.
+If you use any of these pipelines in your research, please cite the relevant repository using the `CITATION.cff` file in each repo, or see the Zenodo DOI links once published.
 
 ---
 
 ## Connect
 
 - Monash University Malaysia — School of Science
-- Email: aswini.leela@monash.edu
+- Email: aswinileela7@gmail.com
